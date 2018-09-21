@@ -1,4 +1,10 @@
-@extends ('template.shop');
+@extends ('template.main')
+@include ('partials.topbar')
+@section ('body')
+  @include ('partials.products')
+@endsection
+
+{{-- @extends ('template.shop');
 @section('content');
   <table class="table table-bordered">
                       <tr>
@@ -35,4 +41,4 @@
                       </td>
                   </tr>
                   @endforeach
-  </table>
+  </table> --}}

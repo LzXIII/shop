@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('shop', 'CartController@shop')->name('shop');
-Route::get('cart', 'CartController@insertproduct')->name('cart');
+Route::get('/', 'IndexController@shop')->name('shop');
+Route::get('cart', 'IndexController@insertproduct')->name('cart');
 Route::get('home', 'CartController@cartpage')->name('home');
 Route::get('crudincrement/{id}','CrudController@increment')->name('crudincrement');
 Route::get('cruddecrement/{id}','CrudController@decrement')->name('cruddecrement');

@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable=['product','price'];
+    protected $fillable=['name','price','image'];
+
+    public function cart()
+    {return $this->HasMany('App\Cart');}
 }
