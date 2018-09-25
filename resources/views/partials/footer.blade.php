@@ -30,11 +30,9 @@
       <!-- footer widget -->
       <div class="col-md-3 col-sm-6 col-xs-6">
         <div class="footer">
-          <h3 class="footer-header">My Account</h3>
+          <h3 class="footer-header">Il Mio Account</h3>
           <ul class="list-links">
-            <li><a href="#">My Account</a></li>
-            <li><a href="#">My Wishlist</a></li>
-            <li><a href="#">Compare</a></li>
+            <li><a href="#">Il Mio Account</a></li>
             <li><a href="#">Checkout</a></li>
             <li><a href="#">Login</a></li>
           </ul>
@@ -47,18 +45,17 @@
       <!-- footer widget -->
       <div class="col-md-3 col-sm-6 col-xs-6">
         <div class="footer">
-          <h3 class="footer-header">Customer Service</h3>
+          <h3 class="footer-header">Servizio Clienti</h3>
           <ul class="list-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Shipping & Return</a></li>
-            <li><a href="#">Shipping Guide</a></li>
+            <li><a href="#">Chi siamo</a></li>
+            <li><a href="#">Politica Spedizioni e Resi</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
         </div>
       </div>
       <!-- /footer widget -->
 
-      
+
     </div>
     <!-- /row -->
     <hr>

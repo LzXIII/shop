@@ -14,7 +14,7 @@
 
 Route::get('/', 'IndexController@shop')->name('shop');
 Route::get('cart', 'IndexController@insertproduct')->name('cart');
-Route::get('cartpage', 'CartController@cartpage')->name('home');
+Route::get('cartpage', 'CartController@cartpage')->name('cartpage');
 Route::get('checkout','CartController@checkout');
 Route::get('crudincrement/{id}','CrudController@increment')->name('crudincrement');
 Route::get('cruddecrement/{id}','CrudController@decrement')->name('cruddecrement');

@@ -22,13 +22,21 @@
             <div class="header-btns-icon">
               <i class="fa fa-user-o"></i>
             </div>
-            <strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
+            @if (Auth::guest())
+            <strong class="text-uppercase">Il Mio Account <i class="fa fa-caret-down"></i></strong>
+          @else
+            <strong class="text-uppercase">{{Auth::User()->name}} <i class="fa fa-caret-down"></i></strong>
+          @endif
           </div>
           <a href="login" class="text-uppercase">Login</a>/<a href="register" class="text-uppercase">Registrati</a>
           <ul class="custom-menu">
             <li><a href="checkout"><i class="fa fa-check"></i>Checkout</a></li>
+            @if (Auth::guest())
             <li><a href="login"><i class="fa fa-unlock-alt"></i>Login</a></li>
             <li><a href="register"><i class="fa fa-user-plus"></i>Registrati</a></li>
+          @else
+            <li><a href="logout"><i class="fa fa-unlock-alt"></i>Logout</a></li>
+          @endif
           </ul>
         </li>
         <!-- /Account -->

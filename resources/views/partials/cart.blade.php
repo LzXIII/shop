@@ -6,11 +6,11 @@
     <table class="shopping-cart-table table">
       <thead>
         <tr>
-          <th>Product</th>
+          <th>Prodotti</th>
           <th></th>
-          <th class="text-center">Price</th>
-          <th class="text-center">Quantity</th>
-          <th class="text-center">Total</th>
+          <th class="text-center">Prezzo</th>
+          <th class="text-center">Quantità</th>
+          <th class="text-center">Totale</th>
           <th class="text-right"></th>
         </tr>
       </thead>
@@ -18,7 +18,7 @@
         <tr>
           <td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
           <td class="details">
-            <a href="#">Product Name Goes Here</a>
+            <a href="#">Product placeholder</a>
             <ul>
               <li><span>Size: XL</span></li>
               <li><span>Color: Camelot</span></li>
@@ -32,7 +32,7 @@
         <tr>
           <td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
           <td class="details">
-            <a href="#">Product Name Goes Here</a>
+            <a href="#">Product placeholder</a>
             <ul>
               <li><span>Size: XL</span></li>
               <li><span>Color: Camelot</span></li>
@@ -61,18 +61,18 @@
       <tfoot>
         <tr>
           <th class="empty" colspan="3"></th>
-          <th>SUBTOTAL</th>
-          <th colspan="2" class="sub-total">$97.50</th>
+          <th>SUBTOTALE</th>
+          <th colspan="2" class="sub-total">€ </th>
         </tr>
         <tr>
           <th class="empty" colspan="3"></th>
-          <th>SHIPING</th>
-          <td colspan="2">Free Shipping</td>
+          <th>SPEDIZIONE</th>
+          <td colspan="2">Spedizione Gratuita</td>
         </tr>
         <tr>
           <th class="empty" colspan="3"></th>
-          <th>TOTAL</th>
-          <th colspan="2" class="total">$97.50</th>
+          <th>TOTALE</th>
+          <th colspan="2" class="total">€ </th>
         </tr>
       </tfoot>
     </table>

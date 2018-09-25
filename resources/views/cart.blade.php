@@ -1,5 +1,6 @@
-@extends ('template.shop');
-@section('content');
+@extends ('template.main')
+@section('body')
+  @include ('topbar')
   <table class="table table-bordered">
                       <tr>
                           <th>Prodotti</th>
