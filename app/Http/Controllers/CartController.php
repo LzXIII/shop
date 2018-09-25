@@ -24,6 +24,11 @@ class CartController extends Controller
       return view ('cart',['cart'=>$cart,'sum'=>$tot]);
     }
 
+    function checkout()
+    {
+      return view ('checkout');
+    }
+
     function buy(Request $request)
     {
       $input=$request->all();

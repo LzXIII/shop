@@ -24,11 +24,10 @@
             </div>
             <strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
           </div>
-          <a href="#" class="text-uppercase">Login</a> / <a href="#" class="text-uppercase">Join</a>
+          <a href="login" class="text-uppercase">Login</a>/<a href="register" class="text-uppercase">Registrati</a>
           <ul class="custom-menu">
-            <li><a href="#"><i class="fa fa-user-o"></i>Il mio Account</a></li>
-            <li><a href="#"><i class="fa fa-check"></i>Checkout</a></li>
-            <li><a href="#"><i class="fa fa-unlock-alt"></i>Login</a></li>
+            <li><a href="checkout"><i class="fa fa-check"></i>Checkout</a></li>
+            <li><a href="login"><i class="fa fa-unlock-alt"></i>Login</a></li>
             <li><a href="register"><i class="fa fa-user-plus"></i>Registrati</a></li>
           </ul>
         </li>
@@ -70,8 +69,7 @@
                 </div>
               </div>
               <div class="shopping-cart-btns">
-                <button class="main-btn">Visualizza Carrello</button>
-                <button class="primary-btn">Checkout<i class="fa fa-arrow-circle-right"></i></button>
+                <button class="primary-btn" action="checkout">Checkout<i class="fa fa-arrow-circle-right"></i></button>
               </div>
             </div>
           </div>
