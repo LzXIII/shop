@@ -11,7 +11,7 @@ use App\Cart;
 class CartController extends Controller
 {
 
-    function cartpage()
+    function cartpage($id)
     {
       $cart = Cart::pluck('id');
       $tot=0;

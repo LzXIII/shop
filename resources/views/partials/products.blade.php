@@ -22,9 +22,12 @@
             <h3 class="product-price">{{$p->price}}</h3>
             <h2 class="product-name"><a href="#">{{$p->name}}</a></h2>
             <div class="product-btns">
-              <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-              <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-              <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</button>
+              <form method="get" action="cart">
+                <button class="primary-btn add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</button>
+                <input type="hidden" name="price" value="{{$p->price}}"/>
+                <input type="hidden" name="name" value="{{$p->name}}"/>
+                <input type="hidden" name="id" value="{{Auth::User()->id}}"/>
+              </form>
             </div>
           </div>
         </div>

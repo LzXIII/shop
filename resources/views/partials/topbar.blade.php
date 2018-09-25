@@ -77,7 +77,12 @@
                 </div>
               </div>
               <div class="shopping-cart-btns">
-                <button class="primary-btn" action="checkout">Checkout<i class="fa fa-arrow-circle-right"></i></button>
+                <form method="get" action="cartpage">
+                  <button class="main-btn" type="submit">Carrello</button>
+                </form>
+                <form method="get" action="checkout">
+                  <button class="primary-btn" type="submit">Checkout<i class="fa fa-arrow-circle-right"></i></button>
+                </form>
               </div>
             </div>
           </div>

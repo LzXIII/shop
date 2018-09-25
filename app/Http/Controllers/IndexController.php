@@ -19,20 +19,21 @@ class IndexController extends Controller
   function insertproduct(Request $request)
   {
     $price=$request->input('price');
-    $product=$request->input('product');
-    $sql= Cart::where('product',$product)->count();
-    if ($sql!=0)
+    $name=$request->input('name');
+    $id=$request->input('id');
+    $result=Cart::where(['name',$name],['user_id',$id])->get()->isEmpty();
+    if ($result)
     {
-    $qt= Cart::where('product',$product)->increment('quant');
+    Cart::where('name',$name)->increment('quantity');
     }
     else {
       $cart = Cart::insert([
-        'product'=>$product,
+        'name'=>$name,
         'price'=>$price,
-        'quant'=>1
+        'quantity'=>1,
+        'user_id'=>$id
     ]);
     }
-    $products = Product::paginate(10);
-    return view ('index',['products'=>$products]);
+    return redirect ('/');
   }
 }
