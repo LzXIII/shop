@@ -29,7 +29,7 @@
             <li><a href="#"><i class="fa fa-user-o"></i>Il mio Account</a></li>
             <li><a href="#"><i class="fa fa-check"></i>Checkout</a></li>
             <li><a href="#"><i class="fa fa-unlock-alt"></i>Login</a></li>
-            <li><a href="#"><i class="fa fa-user-plus"></i>Create An Account</a></li>
+            <li><a href="register"><i class="fa fa-user-plus"></i>Registrati</a></li>
           </ul>
         </li>
         <!-- /Account -->

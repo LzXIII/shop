@@ -19,4 +19,9 @@ Route::get('crudincrement/{id}','CrudController@increment')->name('crudincrement
 Route::get('cruddecrement/{id}','CrudController@decrement')->name('cruddecrement');
 Route::get('cruddelete/{id}','CrudController@destroy')->name('cruddelete');
 Route::post('buyandstore','CartController@buy')->name('buyandstore');
-Route::get('buy', function() {return view ('buy');})->name('buy');
+Route::view('buy', 'buy');
+//Route::get('register', 'UserController@register');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
