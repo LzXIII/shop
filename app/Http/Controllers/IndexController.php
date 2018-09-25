@@ -21,19 +21,31 @@ class IndexController extends Controller
     $price=$request->input('price');
     $name=$request->input('name');
     $id=$request->input('id');
-    $result=Cart::where(['name',$name],['user_id',$id])->get()->isEmpty();
+    $image=$request->input('image');
+    $result=Cart::where('user_id',$id)->first();
     if ($result)
     {
-    Cart::where('name',$name)->increment('quantity');
-    }
+    $result=Cart::where('name',$name)->first();
+    if ($result){
+    $cart = Cart::where('name',$name)->increment('quantity');
+    }else {
+      $cart = Cart::insert([
+        'name'=>$name,
+        'price'=>$price,
+        'quantity'=>1,
+        'user_id'=>$id,
+        'image'=>$image
+    ]);
+  }}
     else {
       $cart = Cart::insert([
         'name'=>$name,
         'price'=>$price,
         'quantity'=>1,
-        'user_id'=>$id
+        'user_id'=>$id,
+        'image'=>$image
     ]);
-    }
+  }
     return redirect ('/');
   }
 }

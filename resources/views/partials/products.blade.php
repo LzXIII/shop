@@ -27,6 +27,7 @@
                 <input type="hidden" name="price" value="{{$p->price}}"/>
                 <input type="hidden" name="name" value="{{$p->name}}"/>
                 <input type="hidden" name="id" value="{{Auth::User()->id}}"/>
+                <input type="hidden" name="image" value="{{$p->image}}"/>
               </form>
             </div>
           </div>
