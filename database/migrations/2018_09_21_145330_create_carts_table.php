@@ -18,7 +18,7 @@ class CreateCartsTable extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->integer('quantity');
-            $table->binary('image')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

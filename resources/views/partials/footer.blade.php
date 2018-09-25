@@ -58,19 +58,7 @@
       </div>
       <!-- /footer widget -->
 
-      <!-- footer subscribe -->
-      <div class="col-md-3 col-sm-6 col-xs-6">
-        <div class="footer">
-          <h3 class="footer-header">Stay Connected</h3>
-          <form>
-            <div class="form-group">
-              <input class="input" placeholder="Enter Email Address">
-            </div>
-            <button class="primary-btn">Join Newsletter</button>
-          </form>
-        </div>
-      </div>
-      <!-- /footer subscribe -->
+      
     </div>
     <!-- /row -->
     <hr>
