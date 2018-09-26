@@ -24,19 +24,30 @@ class CartController extends Controller
       $tot=$sum*$q+$tot;
       }
       $cart=Cart::where('user_id', $id)->get();
-      return view ('cart',['cart'=>$cart,'sum'=>$tot]);
+      return view ('cartpage',['cart'=>$cart,'sum'=>$tot,'shipping'=>0,'shipping_type'=>""]);
     }
 
-    function checkout()
+    function checkout(Request $request)
     {
-      return view ('checkout');
+      $id=Auth::User()->id;
+      $cart = Cart::where('user_id', $id)->pluck('id');
+      $tot=0;
+      foreach ($cart as $c)
+      {
+      $q= Cart::where('id',$c)->value('quantity');
+      $sum= Cart::where('id',$c)->value('price');
+      $tot=$sum*$q+$tot;
+      }
+      $cart=Cart::where('user_id', $id)->get();
+      $shipping=$request->input('shipping');
+      $shipping_type=$request->input('shipping_type');
+      return view ('checkout',['cart'=>$cart,'sum'=>$tot,'shipping'=>$shipping,'shipping_type'=>$shipping_type]);
     }
 
-    function buy(Request $request)
+    function buy()
     {
-      $input=$request->all();
-      User::insert(['name'=>$input['name'],'surname'=>$input['surname'],'email'=>$input['email']]);
-      Cart::update(['flag'=>1]);
-      return redirect('shop');
+      $id=Auth::User()->id;
+      Cart::where('user_id',$id)->delete();
+      return redirect('/');
     }
 }

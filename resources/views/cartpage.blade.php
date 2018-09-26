@@ -1,7 +1,8 @@
 @extends ('template.main')
 @section('body')
   @include ('partials.topbar')
-  <table class="table table-bordered">
+  @include ('partials.cart')
+  {{-- <table class="table table-bordered">
                       <tr>
                           <th>Prodotti</th>
                           <th>Prezzo unitario</th>
@@ -28,4 +29,5 @@
         @endif
         <td><a class="btn btn-primary" href="checkout">Concludi acquisto</a></td>
     </tr>
-  </table>
+  </table> --}}
+@endsection

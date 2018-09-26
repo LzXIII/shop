@@ -14,18 +14,18 @@ class CrudController extends Controller
       {
         $cart=Cart::where('id',$id)->delete();
       }
-      return redirect('cartpage');
+      return redirect('checkout');
   }
 
   public function increment($id)
   {
       $cart=Cart::where('id',$id)->increment('quantity');
-      return redirect('cartpage');
+      return redirect('checkout');
   }
 
   public function destroy($id)
   {
-      $cart=Cart::where('id',$id)->delete();
-      return redirect()->route('cartpage');
+      Cart::where('id',$id)->delete();
+      return back();
   }
 }

@@ -56,22 +56,26 @@
 							<div class="section-title">
 								<h4 class="title">Scegli metodo di spedizione</h4>
 							</div>
+              {!! Form::open(['route' => 'checkout'])!!}
 							<div class="input-checkbox">
-								<input type="radio" name="shipping" id="shipping-1" checked>
-								<label for="shipping-1">Spedizione gratuita -  € 0.00</label>
+								<input type="radio" value="8" name="shipping" id="shipping-1" checked>
+								<label for="shipping-1">Corriere - € 8.00</label>
 								<div class="caption">
 									<p>
 										<p>
 								</div>
 							</div>
+              {!! Form::close()!!}
+              {!! Form::open(['route' => 'checkout'])!!}
 							<div class="input-checkbox">
-								<input type="radio" name="shipping" id="shipping-2">
+								<input type="radio" value="4" name="shipping" id="shipping-2">
 								<label for="shipping-2">Standard - € 4.00</label>
 								<div class="caption">
 									<p>
 										<p>
 								</div>
 							</div>
+              {!! Form::close()!!}
 						</div>
 
 						<div class="payments-methods">
@@ -98,7 +102,7 @@
 					</div>
           @include ('partials.cart')
           <div class="pull-right">
-            <button class="primary-btn">Ordina</button>
+            <a href="{{route('buy')}}" class="primary-btn">Ordina</a>
           </div>
 				</form>
 			</div>

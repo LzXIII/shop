@@ -46,7 +46,9 @@
           <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
             <div class="header-btns-icon">
               <i class="fa fa-shopping-cart"></i>
-              <span class="qty">3</span>
+              @if (Auth::check())
+              <span class="qty">{{Auth::User()->cart()->sum('quantity')}}</span>
+              @endif
             </div>
             <strong class="text-uppercase">Carrello:</strong>
             <br>
@@ -55,34 +57,28 @@
           <div class="custom-menu">
             <div id="shopping-cart">
               <div class="shopping-cart-list">
+                @if (Auth::check())
+                @foreach (Auth::User()->cart()->get() as $product)
                 <div class="product product-widget">
                   <div class="product-thumb">
-                    <img src="./img/thumb-product01.jpg" alt="">
+                    <img src="./img/{{$product->image}}.jpg" alt="">
                   </div>
                   <div class="product-body">
-                    <h3 class="product-price"> <span class="qty">x3</span></h3>
-                    <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+                    <h3 class="product-price"> <span class="qty">x{{$product->quantity}}</span></h3>
+                    <h2 class="product-name">{{$product->name}}</h2>
                   </div>
-                  <button class="cancel-btn"><i class="fa fa-trash"></i></button>
+                  <a class="cancel-btn" href="{{ route('cruddelete',['id'=>$product->id])}}"><i class="fa fa-trash"></i></a>
                 </div>
-                <div class="product product-widget">
-                  <div class="product-thumb">
-                    <img src="./img/thumb-product01.jpg" alt="">
-                  </div>
-                  <div class="product-body">
-                    <h3 class="product-price">$32.50 placeholder <span class="qty">x3</span></h3>
-                    <h2 class="product-name"><a href="#">Product placeholder</a></h2>
-                  </div>
-                  <button class="cancel-btn"><i class="fa fa-trash"></i></button>
-                </div>
+                @endforeach
+                @endif
               </div>
               <div class="shopping-cart-btns">
-                <form method="get" action="cartpage">
-                  <button class="main-btn" type="submit">Carrello</button>
-                  @if (Auth::check())
-                    <input type="hidden" name="id" value="{{Auth::User()->id}}"/>
-                  @endif
-                </form>
+                @if (Auth::check())
+                {{-- {!! Form::open(['route'=>'cartpage'])!!} --}}
+                  <a class="main-btn" href="{{ route('cartpage')}}">Carrello</a>
+                    {{-- <input type="hidden" name="id" value="{{Auth::User()->id}}"> --}}
+                {{-- {!! Form::close()!!} --}}
+                @endif
                 <form method="get" action="checkout">
                   <button class="primary-btn" type="submit">Checkout<i class="fa fa-arrow-circle-right"></i></button>
                 </form>

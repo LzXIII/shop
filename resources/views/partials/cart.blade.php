@@ -9,70 +9,58 @@
           <th>Prodotti</th>
           <th></th>
           <th class="text-center">Prezzo</th>
+          <th class="text-center"></th>
           <th class="text-center">Quantità</th>
+          <th class="text-center"></th>
           <th class="text-center">Totale</th>
-          <th class="text-right"></th>
+          <th class="text-right">Elimina</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
-          <td class="details">
-            <a href="#">Product placeholder</a>
-            <ul>
-              <li><span>Size: XL</span></li>
-              <li><span>Color: Camelot</span></li>
-            </ul>
-          </td>
-          <td class="price text-center"><strong>$32.50</strong><br><del class="font-weak"><small>$40.00</small></del></td>
-          <td class="qty text-center"><input class="input" type="number" value="1"></td>
-          <td class="total text-center"><strong class="primary-color">$32.50</strong></td>
-          <td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
-        </tr>
-        <tr>
-          <td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
-          <td class="details">
-            <a href="#">Product placeholder</a>
-            <ul>
-              <li><span>Size: XL</span></li>
-              <li><span>Color: Camelot</span></li>
-            </ul>
-          </td>
-          <td class="price text-center"><strong>$32.50</strong></td>
-          <td class="qty text-center"><input class="input" type="number" value="1"></td>
-          <td class="total text-center"><strong class="primary-color">$32.50</strong></td>
-          <td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
-        </tr>
-        <tr>
-          <td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
-          <td class="details">
-            <a href="#">Product Name Goes Here</a>
-            <ul>
-              <li><span>Size: XL</span></li>
-              <li><span>Color: Camelot</span></li>
-            </ul>
-          </td>
-          <td class="price text-center"><strong>$32.50</strong></td>
-          <td class="qty text-center"><input class="input" type="number" value="1"></td>
-          <td class="total text-center"><strong class="primary-color">$32.50</strong></td>
-          <td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
-        </tr>
+      @if (Auth::check())
+        @foreach ($cart as $product)
+          <tr>
+            <td class="thumb"><img src="./img/{{$product->image}}.jpg" alt=""></td>
+            <td class="details">
+              {{ $product->name}}
+              <ul>
+                <li><span></span></li>
+                <li><span></span></li>
+              </ul>
+            </td>
+            <td class="price text-center"><strong>{{$product->price}}</strong></td>
+            <td class="qty text-center"><a class="main-btn" href="{{ route('cruddecrement', ['id'=>$product->id])}}">-</a></td>
+            <td class="qty text-center">{{ $product->quantity}}</td>
+            <td class="qty text-center"><a class="main-btn" href="{{ route('crudincrement',['id'=>$product->id])}}">+</a></td>
+            <td class="total text-center"><strong class="primary-color">{{$product->price}}</strong></td>
+            <td class="text-right"><a class="main-btn icon-btn" href="{{ route('cruddelete',['id'=>$product->id])}}"><i class="fa fa-close"></i></button></td>
+          </tr>
+        @endforeach
+      @endif
       </tbody>
       <tfoot>
         <tr>
           <th class="empty" colspan="3"></th>
           <th>SUBTOTALE</th>
-          <th colspan="2" class="sub-total">€ </th>
+          @if (strpos($sum, ".") !== false)
+            <th colspan="2" class="sub-total">€ {{$sum}}0</th>
+          @else
+            <th colspan="2" class="sub-total">€ {{$sum}}.00</th>
+          @endif
         </tr>
         <tr>
           <th class="empty" colspan="3"></th>
           <th>SPEDIZIONE</th>
-          <td colspan="2">Spedizione Gratuita</td>
+          <td colspan="2">{{$shipping_type}}</td>
         </tr>
         <tr>
           <th class="empty" colspan="3"></th>
           <th>TOTALE</th>
-          <th colspan="2" class="total">€ </th>
+          @if (strpos($sum, ".") !== false)
+            <th colspan="2" class="sub-total">€ {{$sum+$shipping}}0</th>
+          @else
+            <th colspan="2" class="sub-total">€ {{$sum+$shipping}}.00</th>
+          @endif
         </tr>
       </tfoot>
     </table>
