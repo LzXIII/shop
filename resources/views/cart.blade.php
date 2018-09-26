@@ -1,6 +1,6 @@
 @extends ('template.main')
 @section('body')
-  @include ('topbar')
+  @include ('partials.topbar')
   <table class="table table-bordered">
                       <tr>
                           <th>Prodotti</th>
@@ -9,9 +9,9 @@
                       </tr>
                   @foreach ($cart as $product)
                   <tr>
-                      <td>{{ $product->product}}</td>
+                      <td>{{ $product->name}}</td>
                       <td>{{ $product->price}}</td>
-                      <td>{{ $product->quant}}</td>
+                      <td>{{ $product->quantity}}</td>
                       <td><a class="btn btn-primary" href="{{ route('cruddecrement', ['id'=>$product->id])}}">-</a></td>
                       <td><a class="btn btn-primary" href="{{ route('crudincrement',['id'=>$product->id])}}">+</a></td>
                       <td><a class="btn btn-danger" href="{{ route('cruddelete',['id'=>$product->id])}}">Elimina</a></td>
@@ -21,7 +21,11 @@
   <table class="table table-bordered">
     <tr>
         <td></td>
+        @if (strpos($sum, ".") !== false)
         <td>Totale da pagare = {{$sum}}0</td>
-        <td><a class="btn btn-primary" href="{{ route('buy')}}">Concludi acquisto</a></td>
+        @else
+        <td>Totale da pagare = {{$sum}}.00</td>
+        @endif
+        <td><a class="btn btn-primary" href="checkout">Concludi acquisto</a></td>
     </tr>
   </table>

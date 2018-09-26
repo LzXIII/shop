@@ -9,20 +9,23 @@ class CrudController extends Controller
 {
   public function decrement($id)
   {
-      $cart = Cart::where('name',$name)->increment('quantity');
+      $cart = Cart::where('id',$id)->decrement('quantity');
+      if (Cart::where('id',$id)->value('quantity')==0)
+      {
+        $cart=Cart::where('id',$id)->delete();
+      }
       return redirect('cartpage');
   }
 
   public function increment($id)
   {
-      $cart = Cart::where('name',$name)->increment('quantity');
+      $cart=Cart::where('id',$id)->increment('quantity');
       return redirect('cartpage');
   }
 
   public function destroy($id)
   {
-      DB::table('cart')->where('id',$id)->delete();
-      return redirect()->route('cartpage')
-                      ->with('success','Article deleted successfully');
+      $cart=Cart::where('id',$id)->delete();
+      return redirect()->route('cartpage');
   }
 }

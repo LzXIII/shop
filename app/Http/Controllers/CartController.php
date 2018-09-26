@@ -7,20 +7,23 @@ use Illuminate\Support\Facades\Input;
 use App\Product;
 use App\User;
 use App\Cart;
+use Auth;
 
 class CartController extends Controller
 {
 
-    function cartpage($id)
+    function cartpage()
     {
-      $cart = Cart::pluck('id');
+      $id=Auth::User()->id;
+      $cart = Cart::where('user_id', $id)->pluck('id');
       $tot=0;
-      foreach ($r as $id)
+      foreach ($cart as $c)
       {
-      $m= Cart::find($id)->sum('quant');
-      $sum= Cart::find($id)->sum('price');
-      $tot=$sum*$m+$tot;
+      $q= Cart::where('id',$c)->value('quantity');
+      $sum= Cart::where('id',$c)->value('price');
+      $tot=$sum*$q+$tot;
       }
+      $cart=Cart::where('user_id', $id)->get();
       return view ('cart',['cart'=>$cart,'sum'=>$tot]);
     }
 

@@ -26,7 +26,9 @@
                 <button class="primary-btn add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</button>
                 <input type="hidden" name="price" value="{{$p->price}}"/>
                 <input type="hidden" name="name" value="{{$p->name}}"/>
-                <input type="hidden" name="id" value="{{Auth::User()->id}}"/>
+                @if (Auth::check())
+                  <input type="hidden" name="id" value="{{Auth::User()->id}}"/>
+                @endif
                 <input type="hidden" name="image" value="{{$p->image}}"/>
               </form>
             </div>

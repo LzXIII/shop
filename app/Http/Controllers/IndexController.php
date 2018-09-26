@@ -22,22 +22,11 @@ class IndexController extends Controller
     $name=$request->input('name');
     $id=$request->input('id');
     $image=$request->input('image');
-    $result=Cart::where('user_id',$id)->first();
+    $result=Cart::where('user_id',$id)->where('name',$name)->first();
     if ($result)
     {
-    $result=Cart::where('name',$name)->first();
-    if ($result){
-    $cart = Cart::where('name',$name)->increment('quantity');
+    $cart = Cart::where('user_id',$id)->where('name',$name)->increment('quantity');
     }else {
-      $cart = Cart::insert([
-        'name'=>$name,
-        'price'=>$price,
-        'quantity'=>1,
-        'user_id'=>$id,
-        'image'=>$image
-    ]);
-  }}
-    else {
       $cart = Cart::insert([
         'name'=>$name,
         'price'=>$price,

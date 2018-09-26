@@ -79,6 +79,9 @@
               <div class="shopping-cart-btns">
                 <form method="get" action="cartpage">
                   <button class="main-btn" type="submit">Carrello</button>
+                  @if (Auth::check())
+                    <input type="hidden" name="id" value="{{Auth::User()->id}}"/>
+                  @endif
                 </form>
                 <form method="get" action="checkout">
                   <button class="primary-btn" type="submit">Checkout<i class="fa fa-arrow-circle-right"></i></button>
