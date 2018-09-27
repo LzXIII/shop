@@ -14,13 +14,13 @@ class CrudController extends Controller
       {
         $cart=Cart::where('id',$id)->delete();
       }
-      return redirect('checkout');
+      return back();
   }
 
   public function increment($id)
   {
       $cart=Cart::where('id',$id)->increment('quantity');
-      return redirect('checkout');
+      return back();
   }
 
   public function destroy($id)

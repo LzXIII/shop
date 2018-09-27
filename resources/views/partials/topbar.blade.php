@@ -61,7 +61,7 @@
                 @foreach (Auth::User()->cart()->get() as $product)
                 <div class="product product-widget">
                   <div class="product-thumb">
-                    <img src="./img/{{$product->image}}.jpg" alt="">
+                    <img src="./img/{{$product->image}}" alt="">
                   </div>
                   <div class="product-body">
                     <h3 class="product-price"> <span class="qty">x{{$product->quantity}}</span></h3>

@@ -52,7 +52,7 @@
 					</div>
         @endif
 					<div class="col-md-6">
-						<div class="shiping-methods">
+						{{-- <div class="shiping-methods">
 							<div class="section-title">
 								<h4 class="title">Scegli metodo di spedizione</h4>
 							</div>
@@ -76,7 +76,7 @@
 								</div>
 							</div>
               {!! Form::close()!!}
-						</div>
+						</div> --}}
 
 						<div class="payments-methods">
 							<div class="section-title">

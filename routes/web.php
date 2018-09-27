@@ -13,18 +13,19 @@
 
 
 Route::get('/','IndexController@shop')->name('shop');
-Route::get('cart','IndexController@insertcart')->name('cart');
-Route::get('cartpage','CartController@cartpage')->name('cartpage');
-Route::get('checkout','CartController@checkout')->name('checkout');
+
+Route::get('cart','IndexController@insertcart')->name('cart')->middleware('auth');
+Route::get('cartpage','CartController@cartpage')->name('cartpage')->middleware('auth');
+Route::get('checkout','CartController@checkout')->name('checkout')->middleware('auth');
+Route::get('buy', 'CartController@buy')->name('buy')->middleware('auth');
+
 Route::get('crudincrement/{id}','CrudController@increment')->name('crudincrement');
 Route::get('cruddecrement/{id}','CrudController@decrement')->name('cruddecrement');
-Route::get('cruddelete/{id}','CrudController@destroy')->name('cruddelete');
+Route::get('cruddelete/{id}','CrudController@destroy')->name('cruddelete')->middleware('auth');
 
-Route::view('insertproduct','insertproduct');
-Route::post('store','IndexController@insertproduct');
-
-Route::get('buy', 'CartController@buy')->name('buy');
+Route::view('insertproduct','insertproduct')->middleware('auth');
+Route::post('store','IndexController@insertproduct')->middleware('auth');
 
 Auth::routes();
-
 Route::get('/home', 'IndexController@shop')->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
   function shop()
   {
-    $product = Product::paginate(8);
+    $product = Product::paginate(4);
     return view ('index',['product'=>$product]);
   }
 

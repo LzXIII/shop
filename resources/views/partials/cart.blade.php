@@ -20,7 +20,7 @@
       @if (Auth::check())
         @foreach ($cart as $product)
           <tr>
-            <td class="thumb"><img src="./img/{{$product->image}}.jpg" alt=""></td>
+            <td class="thumb"><img src="./img/{{$product->image}}" alt=""></td>
             <td class="details">
               {{ $product->name}}
               <ul>
@@ -51,7 +51,7 @@
         <tr>
           <th class="empty" colspan="3"></th>
           <th>SPEDIZIONE</th>
-          <td colspan="2">{{$shipping_type}}</td>
+          <td colspan="2" class="sub-total"><strong>€ {{$shipping}}</strong></td>
         </tr>
         <tr>
           <th class="empty" colspan="3"></th>

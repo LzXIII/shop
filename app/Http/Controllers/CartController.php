@@ -39,7 +39,8 @@ class CartController extends Controller
       $tot=$sum*$q+$tot;
       }
       $cart=Cart::where('user_id', $id)->get();
-      $shipping=$request->input('shipping');
+      // $shipping=$request->input('shipping');
+      $shipping=4;
       $shipping_type=$request->input('shipping_type');
       return view ('checkout',['cart'=>$cart,'sum'=>$tot,'shipping'=>$shipping,'shipping_type'=>$shipping_type]);
     }
