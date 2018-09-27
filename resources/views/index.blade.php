@@ -1,6 +1,7 @@
 @extends ('template.main')
 @include ('partials.topbar')
 @section ('body')
+  <a class="main-btn" href="insertproduct">Inserimento prodotti</a>
   @include ('partials.products')
 @endsection
 

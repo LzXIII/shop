@@ -16,7 +16,7 @@
         <div class="product product-single">
           <div class="product-thumb">
             <button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Dettagli</button>
-            <img src="./img/{{$p->image}}.jpg" alt="">
+            <img src="./img/{{$p->image}}" alt="Image">
           </div>
           <div class="product-body">
             <h3 class="product-price">{{$p->price}}</h3>
@@ -38,3 +38,4 @@
 @endforeach
       <!-- /Product Single -->
     </div>
+    {{$product->links()}}

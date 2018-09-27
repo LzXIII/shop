@@ -12,11 +12,11 @@ class IndexController extends Controller
 {
   function shop()
   {
-    $product = Product::paginate(4);
+    $product = Product::paginate(8);
     return view ('index',['product'=>$product]);
   }
 
-  function insertproduct(Request $request)
+  function insertcart(Request $request)
   {
     $price=$request->input('price');
     $name=$request->input('name');
@@ -37,4 +37,20 @@ class IndexController extends Controller
   }
     return redirect ('/');
   }
+
+  function insertproduct(Request $request)
+  {
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'price' => 'required|numeric|between:0,99.99,99',
+        'image' => 'required|image',
+    ]);
+    $data=$request->all();
+    $imageName = time().'.'.$request->image->getClientOriginalExtension();
+    $request->image->move(public_path('img'), $imageName);
+    Product::insert(['name'=>$data['name'],'price'=>$data['price'],'image'=>$imageName]);
+    $request->session()->flash('success', 'Prodotto inserito correttamente!');
+    return view ('insertproduct');
+  }
+
 }
