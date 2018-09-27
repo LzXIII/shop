@@ -51,16 +51,24 @@
         <tr>
           <th class="empty" colspan="3"></th>
           <th>SPEDIZIONE</th>
+          @if($sum=="")
+            <td colspan="2" class="sub-total"><strong>€ 0.00</strong></td>
+          @else
           <td colspan="2" class="sub-total"><strong>€ {{$shipping}}</strong></td>
+        @endif
         </tr>
         <tr>
           <th class="empty" colspan="3"></th>
           <th>TOTALE</th>
+          @if($sum=="")
+            <td colspan="2" class="sub-total"><strong>€ 0.00</strong></td>
+          @else
           @if (strpos($sum, ".") !== false)
             <th colspan="2" class="sub-total">€ {{$sum+$shipping}}0</th>
           @else
             <th colspan="2" class="sub-total">€ {{$sum+$shipping}}.00</th>
           @endif
+        @endif
         </tr>
       </tfoot>
     </table>
