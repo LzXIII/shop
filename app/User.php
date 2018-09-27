@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'surname'
+        'name', 'email', 'password', 'surname', 'role'
     ];
 
     /**
@@ -30,6 +31,15 @@ class User extends Authenticatable
     public function cart()
     {
       return $this->HasMany('App\Cart');
+    }
+
+    public function isAdmin()
+    {
+      $i=Auth::User();
+          if ($i['role'] == 'admin')
+          {
+              return true;
+          }
     }
 
 }

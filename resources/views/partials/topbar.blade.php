@@ -28,7 +28,9 @@
             <strong class="text-uppercase">{{Auth::User()->name}} <i class="fa fa-caret-down"></i></strong>
           @endif
           </div>
+          @if (Auth::guest())
           <a href="login" class="text-uppercase">Login</a>/<a href="register" class="text-uppercase">Registrati</a>
+        @endif
           <ul class="custom-menu">
             <li><a href="checkout"><i class="fa fa-check"></i>Checkout</a></li>
             @if (Auth::guest())

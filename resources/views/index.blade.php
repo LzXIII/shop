@@ -1,7 +1,11 @@
 @extends ('template.main')
 @include ('partials.topbar')
 @section ('body')
-  <a class="main-btn" href="insertproduct">Inserimento prodotti</a>
+  @if(Auth::check())
+    @if(Auth::User()->isAdmin())
+      <a class="main-btn" href="insertproduct">Inserimento prodotti</a>
+    @endif
+  @endif
   @include ('partials.products')
 @endsection
 

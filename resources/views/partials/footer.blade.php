@@ -32,9 +32,9 @@
         <div class="footer">
           <h3 class="footer-header">Il Mio Account</h3>
           <ul class="list-links">
-            <li><a href="#">Il Mio Account</a></li>
             <li><a href="checkout">Checkout</a></li>
             <li><a href="login">Login</a></li>
+            <li><a href="register">Registrati</a></li>
           </ul>
         </div>
       </div>
