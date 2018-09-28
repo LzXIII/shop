@@ -3,7 +3,7 @@
 @section ('body')
   @if(Auth::check())
     @if(Auth::User()->isAdmin())
-      <a class="main-btn" href="insertproduct">Inserimento prodotti</a>
+      <a class="main-btn" href="insertproduct">Gestione prodotti</a>
     @endif
   @endif
   @if(Session::has('empty'))

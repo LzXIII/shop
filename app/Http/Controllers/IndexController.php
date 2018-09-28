@@ -22,6 +22,7 @@ class IndexController extends Controller
     $name=$request->input('name');
     $id=$request->input('id');
     $image=$request->input('image');
+    $product_id=$request->input('product_id');
     $result=Cart::where('user_id',$id)->where('name',$name)->first();
     if ($result)
     {
@@ -32,7 +33,8 @@ class IndexController extends Controller
         'price'=>$price,
         'quantity'=>1,
         'user_id'=>$id,
-        'image'=>$image
+        'image'=>$image,
+        'product_id'=>$product_id
     ]);
   }
     return redirect ('/');
@@ -51,6 +53,28 @@ class IndexController extends Controller
     Product::insert(['name'=>$data['name'],'price'=>$data['price'],'image'=>$imageName]);
     $request->session()->flash('success', 'Prodotto inserito correttamente!');
     return view ('insertproduct');
+  }
+
+  function controlpage()
+  {
+    $product = Product::paginate(4);
+    return view ('insertproduct', ['product'=>$product]);
+  }
+
+  function updateproduct(Request $request)
+  {
+    dd($request);
+    request()->validate([
+      'name' => 'required',
+      'price' => 'required|numeric|between:0,99.99,99',
+      'image' => 'required|image',
+    ]);
+    if($request->input['name']="")
+    {
+      $request->input['name']=Product::find($id)->value('name');
+    }
+      Product::find($id)->update($request->all());
+      return view ('insertproduct');
   }
 
 }

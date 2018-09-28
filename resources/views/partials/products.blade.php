@@ -30,6 +30,7 @@
                   <input type="hidden" name="id" value="{{Auth::User()->id}}"/>
                 @endif
                 <input type="hidden" name="image" value="{{$p->image}}"/>
+                <input type="hidden" name="product_id" value="{{$p->id}}"/>
               </form>
             </div>
           </div>

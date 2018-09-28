@@ -1,7 +1,7 @@
 @extends ('template.main')
 @section ('body')
 @include ('partials.topbar')
-<div class="col-md-6">
+<div class="col-md-3">
   <h4 class="text-uppercase">Inserimento Nuovo Prodotto</h4>
   <p></p>
   <form class="review-form" method="post" action="store" enctype="multipart/form-data">
@@ -18,10 +18,10 @@
       <label>Immagine</label>
       <input class="input" type="file" name="image" placeholder="Immagine" />
     </div>
-
     <button type="submit" class="primary-btn">Invio</button>
   </form>
 </div>
+  {{-- @include ('partials.updateproduct') --}}
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

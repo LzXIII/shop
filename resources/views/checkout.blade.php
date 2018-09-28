@@ -28,10 +28,10 @@
 								<h3 class="title">Dettagli dell'ordine</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="fname" placeholder="First Name">
+								<input class="input" type="text" name="fname" placeholder="Nome">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="lname" placeholder="Last Name">
+								<input class="input" type="text" name="lname" placeholder="Cognome">
 							</div>
 							<div class="form-group">
 								<input class="input" type="email" name="email" placeholder="Email">
@@ -44,7 +44,7 @@
 									<div class="caption">
 										<p>
 											<p>
-												<input class="input" type="password" name="password" placeholder="Enter Your Password">
+												<input class="input" type="password" name="password" placeholder="Password">
 									</div>
 								</div>
 							</div>
@@ -101,7 +101,7 @@
 						</div>
 					</div>
           @include ('partials.cart')
-          
+
           <div class="pull-right">
             <a href="{{route('buy')}}" class="primary-btn">Ordina</a>
           </div>

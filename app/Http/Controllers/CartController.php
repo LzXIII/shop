@@ -66,6 +66,11 @@ class CartController extends Controller
     function buy()
     {
       $id=Auth::User()->id;
+      $product_id=Cart::where('user_id',$id)->pluck('product_id');
+      foreach ($product_id as $p)
+      {
+        Product::where('id',$p)->increment('sold');
+      }
       Cart::where('user_id',$id)->delete();
       session()->flash('order', 'Ordine effettuato con successo');
       return redirect('/');
