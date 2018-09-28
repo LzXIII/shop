@@ -38,7 +38,7 @@
         @endforeach
       @endif
       </tbody>
-      {{-- <tfoot>
+      <tfoot>
         <tr>
           <th class="empty" colspan="3"></th>
           <th>SUBTOTALE</th>
@@ -51,10 +51,10 @@
         <tr>
           <th class="empty" colspan="3"></th>
           <th>SPEDIZIONE</th>
-          @if($sum=="")
+          @if($shipping==0)
             <td colspan="2" class="sub-total"><strong>€ 0.00</strong></td>
           @else
-          <td colspan="2" class="sub-total"><strong>€ {{$shipping}}</strong></td>
+          <td colspan="2" class="sub-total"><strong>€ {{$shipping}}0</strong></td>
         @endif
         </tr>
         <tr>
@@ -70,7 +70,7 @@
           @endif
         @endif
         </tr>
-      </tfoot> --}}
+      </tfoot>
     </table>
   </div>
 

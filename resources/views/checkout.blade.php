@@ -101,6 +101,7 @@
 						</div>
 					</div>
           @include ('partials.cart')
+          
           <div class="pull-right">
             <a href="{{route('buy')}}" class="primary-btn">Ordina</a>
           </div>

@@ -20,8 +20,8 @@ class CheckShipping
         $id=Auth::id();
         if(Cart::where('user_id',$id)->first())
         {
-          return $next($request);
-        }
+            return $next($request);
+          }
         else {
           $request->session()->flash('empty', 'Nessun prodotto nel carrello');
           return redirect('/');

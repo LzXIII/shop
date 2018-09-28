@@ -10,6 +10,9 @@
           <img src="./img/logo.png" alt="">
         </a>
       </div>
+      <div>
+        <strong class="text-uppercase"><h4>Spedizioni gratuite a partire da 50 €</h4></strong>
+      </div>
       <!-- /Logo -->
 
 

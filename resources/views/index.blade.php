@@ -7,7 +7,10 @@
     @endif
   @endif
   @if(Session::has('empty'))
-      <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span><em> {!! session('empty') !!}</em></div>
+      <div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span><em> {!! session('empty') !!}</em></div>
+  @endif
+  @if(Session::has('order'))
+      <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('order') !!}</em></div>
   @endif
   @include ('partials.products')
 @endsection
