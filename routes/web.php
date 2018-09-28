@@ -16,7 +16,7 @@ Route::get('/','IndexController@shop')->name('shop');
 
 Route::get('cart','IndexController@insertcart')->name('cart')->middleware('auth');
 Route::get('cartpage','CartController@cartpage')->name('cartpage')->middleware('auth');
-Route::get('checkout','CartController@checkout')->name('checkout')->middleware('auth');
+Route::get('checkout','CartController@checkout')->name('checkout')->middleware('auth','CheckShipping');
 Route::get('buy', 'CartController@buy')->name('buy')->middleware('auth');
 
 Route::get('crudincrement/{id}','CrudController@increment')->name('crudincrement');

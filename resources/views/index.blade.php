@@ -6,6 +6,9 @@
       <a class="main-btn" href="insertproduct">Inserimento prodotti</a>
     @endif
   @endif
+  @if(Session::has('empty'))
+      <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span><em> {!! session('empty') !!}</em></div>
+  @endif
   @include ('partials.products')
 @endsection
 

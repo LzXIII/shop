@@ -38,7 +38,7 @@
         @endforeach
       @endif
       </tbody>
-      <tfoot>
+      {{-- <tfoot>
         <tr>
           <th class="empty" colspan="3"></th>
           <th>SUBTOTALE</th>
@@ -70,7 +70,7 @@
           @endif
         @endif
         </tr>
-      </tfoot>
+      </tfoot> --}}
     </table>
   </div>
 
