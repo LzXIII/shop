@@ -44,13 +44,13 @@ class IndexController extends Controller
   {
     $validatedData = $request->validate([
         'name' => 'required',
-        'price' => 'required|numeric|between:0,99.99,99',
+        'price' => 'required|numeric|between:0,99.149,99',
         'image' => 'required|image',
     ]);
     $data=$request->all();
     $imageName = time().'.'.$request->image->getClientOriginalExtension();
     $request->image->move(public_path('img'), $imageName);
-    Product::insert(['name'=>$data['name'],'price'=>$data['price'],'image'=>$imageName]);
+    Product::insert(['name'=>$data['name'],'price'=>$data['price'],'image'=>$imageName,'sold'=>0]);
     $request->session()->flash('success', 'Prodotto inserito correttamente!');
     return view ('insertproduct');
   }
@@ -66,7 +66,7 @@ class IndexController extends Controller
     dd($request);
     request()->validate([
       'name' => 'required',
-      'price' => 'required|numeric|between:0,99.99,99',
+      'price' => 'required|numeric|between:0,99.149,99',
       'image' => 'required|image',
     ]);
     if($request->input['name']="")

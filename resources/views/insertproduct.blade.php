@@ -21,7 +21,7 @@
     <button type="submit" class="primary-btn">Invio</button>
   </form>
 </div>
-  {{-- @include ('partials.updateproduct') --}}
+  @include ('partials.updateproduct')
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
